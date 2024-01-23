@@ -37,4 +37,11 @@ jobs:
           git rebase release
           git push
           git push --tags
-          gh release create --notes-from-tag ${{steps.metadata.outputs.current-version}}
+      - name: publish release
+        env: 
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
+        with:
+          files: target/test-${{steps.metadata.outputs.current-version}}.jar
+          tag_name: ${{steps.metadata.outputs.current-version}}
+          generate_release_notes: true
