@@ -9,7 +9,7 @@
 
 
     <scm>
-      <connection>scm:git:git@github.com:/spyrkob/test</connection>
+      <connection>scm:git:git@github.com:spyrkob/test</connection>
     </scm>
 
     <properties>
